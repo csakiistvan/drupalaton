@@ -1,0 +1,638 @@
+@import "compass/css3";
+
+html {
+  font-family: $base-font-family;
+  line-height: 160%;
+  font-size: $base-font-size;
+}
+
+section {
+  ul li {
+    font-family: $base-font-family;
+    line-height: 160%;
+    font-size: $base-font-size + 6;
+  }
+}
+a {
+  color: $links;
+  text-decoration: none;
+}
+p {
+  font-size: $base-font-size + 8;
+  line-height: 140%;
+}
+
+.invisible {
+  @include element-invisible;
+}
+
+/**
+ * navigation
+ */
+.navigation {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  transition: all 0.3s ease-in;
+
+  &.fixed {
+    background-color: rgba(0, 0, 0, 0.6);
+
+    #nav ul li a {
+      color: #fff;
+    }
+  }
+}
+
+#nav {
+  @include clearfix;
+
+  ul {
+    @include clearfix;
+    text-align: center;
+    padding: 0 20px;
+
+    li {
+      display: inline;
+      margin: 0 15px;
+      line-height: normal;
+
+      a {
+        font-family: $oswald;
+        font-weight: bold;
+        font-size: $base-font-size + 8;
+        color: $menuitemcolor;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+/**
+ * landscape
+ */
+.landscape {
+  background: url("../img/sky.png") repeat-x scroll 0 0 transparent;
+  height: 800px;
+  position: relative;
+}
+.hills {
+  background: url("../img/hills.png") no-repeat scroll 0 0 transparent;
+  display: block;
+  height: 96px;
+  width: 745px;
+  position: absolute;
+  top: 162px;
+}
+.boats {
+  width: 100%;
+  position: relative;
+  height: 100px;
+  margin: 0;
+  top: 174px;
+
+  .boat {
+    position: absolute;
+  }
+  #smallboat {
+    background: url("../img/boat_small.svg") no-repeat scroll 0 0 transparent;
+    height: 60px;
+    width: 30px;
+    top: 25px;
+  }
+  #bigboat {
+    background: url("../img/boat_big.svg") no-repeat scroll 0 0 transparent;
+    height: 77px;
+    top: 0;
+    width: 66px;
+  }
+}
+.lake {
+  height: 800px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: url("../img/water.png") repeat-x scroll 0 0 transparent;
+}
+.logo {
+  position: absolute;
+  text-align: right;
+  top: 189px;
+  width: 100%;
+
+  a {
+    display: block;
+    margin: 0 auto;
+  }
+  .logo-inner {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 $dekstopgutter;
+  }
+}
+.info {
+  height: 400px;
+  margin-top: 30px;
+  position: absolute;
+  top: 288px;
+  width: 100%;
+
+  h1 {
+    color: transparent;
+    display: block;
+    height: 100%;
+    position: relative;
+    text-indent: -9000em;
+    width: 960px;
+    margin: 0 auto;
+
+    span {
+      background-repeat: no-repeat;
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      background-image: url("../img/big_typo.svg");
+    }
+  }
+}
+.logo-link {
+  width: 100%;
+
+  .logo-link-inner {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+
+    a {
+      height: 74px;
+      width: 345px;
+      position: absolute;
+      right: 0;
+      top: 190px;
+      display: block;
+    }
+  }
+}
+
+/**
+ * content
+ */
+.content {
+
+  section {
+    padding-top: 2.5em;
+  }
+
+  h2.section-title{
+    margin: 0;
+    font-family: $oswald;
+    font-size: $base-font-size * 5;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $sectiontitle;
+  }
+  h3.section-subtitle{
+    margin: 0;
+    font-family: $oswald;
+    font-weight: 100;
+    font-size: $base-font-size * 2 + 6;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $sectionsubtitle;
+  }
+}
+
+.tabs {
+  padding-top: 1em;
+  height: 46px;
+
+  h2 {
+    position: relative;
+    display: block;
+    width: 30%;
+    float: left;
+    margin: 0;
+    margin-right: 3%;
+
+    a {
+      @include tab-button;
+    }
+    &.middle {
+    }
+
+    &.last {
+      margin-right: 0;
+    }
+  }
+}
+p.price {
+  display: none;
+}
+
+section {
+    margin-top: -4.5em;
+    padding-top: 4.5em;
+}
+.tab-content {
+  background-color: $menuitemcolor;
+  padding: 40px 0 50px;
+  margin-top: -1px;
+
+  p {
+    a {
+      color: $sectiontitle;
+    }
+  }
+  p, ul, li, h3 {
+    color: #fff;
+  }
+}
+
+.tab-button {
+  @include submit-button;
+}
+// about
+.about {
+  .event-data {
+    background: url("../img/drupalaton_hungary.jpg") no-repeat scroll top right transparent;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+}
+.sponsors {
+  .tab-button {
+    @include orange-button;
+
+    width: 100%;
+    max-width: 900px;
+    margin: 40px 0 0 0;
+    text-align: center;
+    border: 0;
+  }
+  .tabs h2 {
+    a {
+      font-size: $base-font-size + 3;
+    }
+  }
+}
+.contactmin {
+  .content {
+    padding: 80px 0;
+  }
+  p {
+    margin: 0;
+    display: block;
+    font-family: $oswald;
+    color: $sectiontitle;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: $base-font-size * 5 + 2;
+    font-weight: bold;
+
+    span a {
+      color: $menuitemcolor;
+    }
+  }
+}
+
+div.twitter {
+  background-color: $sectiontitle;
+  padding: 60px 0;
+
+  span {
+    display: block;
+    font-family: $oswald;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: $base-font-size * 4 + 11;
+    font-weight: bold;
+
+    &.second {
+      color: $twitterurl;
+    }
+  }
+}
+div.newsletter {
+  background-color: $menuitemcolor;
+  padding: 60px 0;
+
+  span {
+    display: block;
+    font-family: $oswald;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: $base-font-size * 4 + 11;
+    font-weight: bold;
+
+    &.second {
+      color: $twitterurl;
+    }
+    &.first {
+      color: $sectiontitle;
+    }
+  }
+  input.email {
+    position: relative;
+    color: $sectiontitle;
+    background-color: #ffffff;
+    font-family: $oswald;
+    font-weight: bold;
+    display: block;
+    text-transform: uppercase;
+
+    font-size:$base-font-size + 8;
+    padding:14px 30px 10px 30px;
+    @include border-radius(6px);
+    @include box-shadow(#bfbfbf 0px -6px);
+
+    width: 50%;
+    float: left;
+    margin: 40px 40px 0 0;
+    text-align: left;
+    border: 0;
+  }
+  input.button {
+    @include orange-button;
+
+    width: 25%;
+    float: left;
+    margin: 40px 0 0 0;
+    text-align: center;
+    border: 0;
+
+  }
+}
+
+// social
+div.social {
+  background-color: $orange;
+  padding: 60px 0;
+
+  display: block;
+  font-family: $oswald;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 100%;
+  
+  p {
+    font-size: $base-font-size * 4 + 11;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+.partner-link {
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+}
+.sponsor-link:hover,
+.sponsor-link:focus,
+.partner-link:hover,
+.partner-link:focus {
+  border-color: #f0a303;
+}
+
+// location
+
+.location-area {
+  background: #e7e7e7;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 300px;
+}
+.location,
+.sessionproposals,
+.about {
+  margin-bottom: 60px;
+}
+.registration {
+  margin-bottom: 40px;
+}
+.about-wrapper {
+  margin-top: 60px;
+}
+
+/**
+ * device fixes
+ */
+@media all and (min-width: 960px) {
+  #nav {
+    width: $dekstopwidth;
+    margin: 0 auto;
+  }
+  .tab-content .content {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+// big screen
+@media all and (min-width: 1340px) {
+
+}
+// normal screen
+@media all and (min-width: 1000px) and (max-width: 1339px) {
+
+}
+// tablet and small screen
+@media all and (min-width: 600px) and (max-width: 999px) {
+
+}
+// landscape ipad tablet
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+
+}
+// mobile device
+@media all and (max-width: 599px) {
+  body {
+    max-width: 599px;
+    min-width: 100px;
+  }
+  .container_12 {
+    width: 100%;
+    max-width: 599px;
+  }
+  #nav ul {
+    padding-left: 20px;
+    
+    li a {
+      color: #fff;
+    }
+  }
+  .landscape {
+    height: 492px;
+
+    .hills {
+      width: 100%;
+      background-position: -392px 0;
+    }
+    .logo {
+      top: 196px;
+      right: 0;
+
+      .logo-inner {
+        width: 100%;
+        max-width: 599px;
+        padding: 0;
+
+        img {
+          margin: 0 30px 0 0;
+          width: 280px;
+        }
+      }
+    }
+    .info {
+      height: 262px;
+      margin-top: 0;
+
+      h1 {
+        width: 100%;
+        max-width: 500px;
+
+        span {
+          background-size: 89% auto;
+          background-position: 18px 0;
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    }
+    .lake {
+      height: 492px;
+    }
+    .logo-link-inner {
+      width: 100%;
+      max-width: 599px;
+
+      a {
+        right: 17px;
+        top: 193px;
+      }
+    }
+  }
+
+  .tabs {
+    height: auto;
+
+    h2 {
+      float: left;
+      width: 30%;
+      margin: 0 0 0 2%;
+      
+      &.last {
+        margin-left: 0;
+      }
+      span {
+        display: none;
+      }
+      &.middle {
+        margin: 0 10px;
+      }
+      a {
+        padding: 5px;
+        font-size: $base-font-size;
+      }
+    }
+  }
+  .sponsors .tabs h2 a {
+    font-size: $base-font-size;
+  }
+  .content {
+    .wrapper {
+      padding: 0 20px;
+    }
+  }
+  .twitter span,
+  .newsletter form {
+    padding: 0 20px;
+  }
+  div.twitter span,
+  div.newsletter span {
+    font-size: $base-font-size + 18;
+    line-height: 120%;
+  }
+  div.twitter {
+    span {
+
+    }
+  }
+  div.newsletter {
+    input.email {
+      float: none;
+      width: 80%;
+      margin: 20px 0 0 0;
+      text-align: center;
+    }
+    input.button {
+      width: 100%;
+      float: none;
+      margin: 20px 0 0 0;
+    }
+  }
+  .navigation {
+    height: auto;
+  }
+  .content h2.section-title {
+    font-size: $base-font-size * 3;
+  }
+  .about .event-data {
+    padding-bottom: 180px;
+    background-size: 100% auto;
+    background-position: 0 bottom;
+  }
+  .contactmin {
+    p {
+      font-size: $base-font-size * 2 + 2;
+    }
+  }
+  .sponsors {
+    .tab-button {
+      width: 77%;
+    }
+  }
+  .boats {
+   .boat {
+     display: none;
+   }
+  }
+  .tab-content {
+    p.price {
+      display: block;
+    }
+  }
+  div.social {
+    img {
+      height: 28px;
+    }
+    p {
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: $base-font-size *2+4;
+      line-height: 120%;
+    }
+  }
+}
+@media all and (max-width: 1300px) {
+  .hills {
+    background-position: -320px 0;
+  }
+}
+// iPhone 4, 4S Retina landscape
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+
+}
+
+// Standing retina screen
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 600px){
+  .landscape .info h1 span {
+    background-size: 270px auto;
+    margin-left: 0.2em;
+    width: 90%;
+  }
+}
